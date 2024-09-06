@@ -1,50 +1,29 @@
-# React + TypeScript + Vite
+# Just-Math.org
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **Just-Math.org**, a website dedicated to providing a collection of math-related tools, resources, and information for students, teachers, and enthusiasts. This project aims to offer easy-to-use solutions for various math problems, educational materials, and calculators to assist in learning and problem-solving.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [License](#license)
+- [Installation](#installation)
 
-## Expanding the ESLint configuration
+## Project Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Just-Math.org is a publicly hosted site designed to deliver math-related resources. Whether you're learning algebra, calculus, or anything in between, Just-Math.org is a one-stop platform for students, teachers, and enthusiasts alike.
 
-- Configure the top-level `parserOptions` property like this:
+## Features
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Create Your Own Math Flashcard sets**: Using mathematical expressions supported by Mathquill
+- **Use Global Flashcard Sets**: May contain proofs for many problems and expressions
+- **Interactive Learning**: Quizzes and exercises to practice different topics.
+- **Resources & Guides**: Educational materials to aid in understanding various concepts.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Installation
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+You can clone this repository to work on the project locally or contribute to its development.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+```bash
+git clone https://github.com/your-username/just-math.org.git
+cd just-math.org
