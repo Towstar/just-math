@@ -27,14 +27,10 @@ export const EquationTest = () => {
   };
 
   const handleSubmenuClose = () => {
+    console.log("SubmenuClose is being called");
     setAnchorEl(null);
   };
 
-  const displayMenu = () => {
-    console.warn("Menu Displayed");
-  };
-
-  // Write the integral into the math field
   const handleIntegralButtonClick = () => {
     if (mathFieldRef.current) {
       mathFieldRef.current.write("\\int");
@@ -49,7 +45,7 @@ export const EquationTest = () => {
 
   const handleNthRootRadicalButtonClick = () => {
     if (mathFieldRef.current) {
-      mathFieldRef.current.write("\\sqrt[n]{expression");
+      mathFieldRef.current.write("\\sqrt[n]{ }");
     }
   };
 
@@ -59,25 +55,41 @@ export const EquationTest = () => {
     }
   };
 
-  const handleLineIntegralButtonClick = () => {
+  const handlePartialDerivativeButtonClick = () => {
     if (mathFieldRef.current) {
-      mathFieldRef.current.write("\\[ \\angle \\]");
+      mathFieldRef.current.write(
+        "\\frac{\\partial}{\\partial x}\\left(\\right)"
+      );
     }
   };
 
-  const handleAngleButtonClick = () => {
+  const handleLineIntegralButtonClick = () => {
     if (mathFieldRef.current) {
       mathFieldRef.current.write("\\oint");
     }
   };
 
+  const handleAngleButtonClick = () => {
+    if (mathFieldRef.current) {
+      mathFieldRef.current.write("\\angle");
+    }
+  };
+
+  const handleInfinityButtonClick = () => {
+    if (mathFieldRef.current) {
+      mathFieldRef.current.write("\\infty");
+    }
+  };
+
   const CalculusListItems = [
     { name: "Integral", onClick: handleIntegralButtonClick },
-    { name: "Line Integral", onClick: handleLineIntegralButtonClick },
+    { name: "Closed Line Integral", onClick: handleLineIntegralButtonClick },
+    { name: "Partial Derivative", onClick: handlePartialDerivativeButtonClick },
   ];
 
   const BasicMathListItems = [
     { name: "Nth Root", onClick: handleNthRootRadicalButtonClick },
+    { name: "Infinity", onClick: handleInfinityButtonClick },
   ];
 
   const GeometryListItems = [
@@ -88,7 +100,10 @@ export const EquationTest = () => {
     { name: "Angle", onClick: handleAngleButtonClick },
   ];
 
-  const LogicListItems = [{ name: "Angle", onClick: handleAngleButtonClick }];
+  const LogicListItems = [
+    { name: "AND", onClick: handleLogicalANDButtonClick },
+    { name: "NOT", onClick: handleLogicalNOTButtonClick },
+  ];
 
   const LinearAlgebraListItems = [
     { name: "Angle", onClick: handleAngleButtonClick },
@@ -117,106 +132,135 @@ export const EquationTest = () => {
       <p>{latex}</p>
 
       {/* Button to see symbols menu */}
-      <Tooltip title="Insert Symbols">
-        <PopupState variant="popover" popupId="custom-symbol-menu">
-          {(popupState) => {
-            return (
-              <React.Fragment>
+
+      <PopupState variant="popover" popupId="custom-symbol-menu">
+        {(popupState) => {
+          return (
+            <React.Fragment>
+              <Tooltip title="Insert Symbols">
                 <Button variant="contained" {...bindTrigger(popupState)}>
                   Symbols Menu
                 </Button>
-                <Menu {...bindMenu(popupState)}>
-                  <MenuItem
-                    onMouseOver={(e) =>
-                      handleMenuItemMouseOver(e, BasicMathListItems)
-                    }
-                  >
-                    Basic Math Symbols
-                  </MenuItem>
-                  <MenuItem
-                    onMouseOver={(e) =>
-                      handleMenuItemMouseOver(e, CalculusListItems)
-                    }
-                  >
-                    Calculus
-                  </MenuItem>
-                  <MenuItem
-                    onMouseOver={(e) =>
-                      handleMenuItemMouseOver(e, GeometryListItems)
-                    }
-                  >
-                    Geometry
-                  </MenuItem>
-                  <MenuItem
-                    onMouseOver={(e) =>
-                      handleMenuItemMouseOver(e, SetTheoryListItems)
-                    }
-                  >
-                    Set Theory
-                  </MenuItem>
-                  <MenuItem
-                    onMouseOver={(e) =>
-                      handleMenuItemMouseOver(e, LogicListItems)
-                    }
-                  >
-                    Logic
-                  </MenuItem>
-                  <MenuItem
-                    onMouseOver={(e) =>
-                      handleMenuItemMouseOver(e, LinearAlgebraListItems)
-                    }
-                  >
-                    Linear Algebra
-                  </MenuItem>
-                  <MenuItem
-                    onMouseOver={(e) =>
-                      handleMenuItemMouseOver(
-                        e,
-                        ProbabilityAndStatisticsListItems
-                      )
-                    }
-                  >
-                    Probability and Statistics
-                  </MenuItem>
-                  <MenuItem
-                    onMouseOver={(e) =>
-                      handleMenuItemMouseOver(e, CombinatoricsListItems)
-                    }
-                  >
-                    Combinatorics
-                  </MenuItem>
-                </Menu>
-
-                <Menu
-                  anchorEl={anchorEl}
-                  open={Boolean(anchorEl)}
-                  onClose={handleSubmenuClose}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "left",
+              </Tooltip>
+              <Menu {...bindMenu(popupState)}>
+                <MenuItem
+                  onMouseOver={(e) =>
+                    handleMenuItemMouseOver(e, BasicMathListItems)
+                  }
+                  onMouseLeave={(e) => {
+                    console.log("OnMouseLeave", e);
                   }}
                 >
-                  {submenuItems.map((item, index) => (
-                    <MenuItem
-                      key={index}
-                      onClick={() => {
-                        item.onClick();
-                        handleSubmenuClose();
-                      }}
-                    >
-                      {item.name}
-                    </MenuItem>
-                  ))}
-                </Menu>
-              </React.Fragment>
-            );
-          }}
-        </PopupState>
-      </Tooltip>
+                  Basic Math Symbols
+                </MenuItem>
+                <MenuItem
+                  onMouseOver={(e) =>
+                    handleMenuItemMouseOver(e, CalculusListItems)
+                  }
+                  onMouseLeave={(e) => {
+                    console.log("OnMouseLeave", e);
+                  }}
+                >
+                  Calculus
+                </MenuItem>
+                <MenuItem
+                  onMouseOver={(e) =>
+                    handleMenuItemMouseOver(e, GeometryListItems)
+                  }
+                  onMouseLeave={(e) => {
+                    console.log("OnMouseLeave", e);
+                  }}
+                >
+                  Geometry
+                </MenuItem>
+                <MenuItem
+                  onMouseOver={(e) =>
+                    handleMenuItemMouseOver(e, SetTheoryListItems)
+                  }
+                  onMouseLeave={(e) => {
+                    console.log("OnMouseLeave", e);
+                  }}
+                >
+                  Set Theory
+                </MenuItem>
+                <MenuItem
+                  onMouseOver={(e) =>
+                    handleMenuItemMouseOver(e, LogicListItems)
+                  }
+                  onMouseLeave={(e) => {
+                    console.log("OnMouseLeave", e);
+                  }}
+                >
+                  Logic
+                </MenuItem>
+                <MenuItem
+                  onMouseOver={(e) =>
+                    handleMenuItemMouseOver(e, LinearAlgebraListItems)
+                  }
+                  onMouseLeave={(e) => {
+                    console.log("OnMouseLeave", e);
+                  }}
+                >
+                  Linear Algebra
+                </MenuItem>
+                <MenuItem
+                  onMouseOver={(e) =>
+                    handleMenuItemMouseOver(
+                      e,
+                      ProbabilityAndStatisticsListItems
+                    )
+                  }
+                  onMouseLeave={(e) => {
+                    console.log("OnMouseLeave", e);
+                  }}
+                >
+                  Probability and Statistics
+                </MenuItem>
+                <MenuItem
+                  onMouseOver={(e) =>
+                    handleMenuItemMouseOver(e, CombinatoricsListItems)
+                  }
+                  onMouseLeave={(e) => {
+                    console.log("OnMouseLeave", e);
+                  }}
+                  onMouseOut={(e) => {
+                    console.log("OnMouseOut", e);
+                  }}
+                >
+                  Combinatorics
+                </MenuItem>
+              </Menu>
+
+              <Menu
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={handleSubmenuClose}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                onMouseLeave={handleSubmenuClose}
+              >
+                {submenuItems.map((item, index) => (
+                  <MenuItem
+                    key={index}
+                    onClick={() => {
+                      item.onClick();
+                      handleSubmenuClose();
+                    }}
+                  >
+                    {item.name}
+                  </MenuItem>
+                ))}
+              </Menu>
+            </React.Fragment>
+          );
+        }}
+      </PopupState>
     </div>
   );
 };
