@@ -6,24 +6,28 @@ import About from "./pages/About";
 import TopicsList from "./pages/TopicsList";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
-import { EquationTest } from "./pages/EquationTest";
+import { EquationInput } from "./components/EquationInput";
+import { ThemeProvider } from "@mui/material";
+import GlobalTheme from "../public/theme";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<AppLayout />}>
-          <Route index element={<Navigate replace to="home" />} />
-          <Route path="home" element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="topics" element={<TopicsList />} />
-          <Route path="test" element={<EquationTest />} />
-        </Route>
+    <ThemeProvider theme={GlobalTheme}>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route index element={<Navigate replace to="home" />} />
+            <Route path="home" element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="topics" element={<TopicsList />} />
+            <Route path="test" element={<EquationInput />} />
+          </Route>
 
-        <Route path="login" element={<Login />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </BrowserRouter>
+          <Route path="login" element={<Login />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
