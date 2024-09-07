@@ -7,10 +7,12 @@ addStyles();
 
 interface EquationInputProps {
   ButtonColor?: string;
+  testMode?: boolean;
 }
 
 export const EquationInput: React.FC<EquationInputProps> = ({
   ButtonColor,
+  testMode,
 }) => {
   const [latex, setLatex] = useState("\\int\\frac{1}{\\sqrt{2}}\\cdot 2");
   const mathFieldRef = useRef<MathField | null>(null);
@@ -818,7 +820,7 @@ export const EquationInput: React.FC<EquationInputProps> = ({
       />
 
       {/* Display current LaTeX */}
-      <p>{latex}</p>
+      {testMode ? <p>{latex}</p> : <></>}
 
       {/* Button to see symbols menu */}
       <CascadingHoverMenus

@@ -10,6 +10,7 @@ import {
   bindMenu,
 } from "material-ui-popup-state/hooks";
 import { PopupState } from "material-ui-popup-state/hooks";
+import { Box } from "@mui/material";
 
 const styles = {
   submenu: {
@@ -158,14 +159,16 @@ const CascadingHoverMenus: React.FC<CascadingHoverMenusProps> = ({
 
   return (
     <div style={{ height: 600 }}>
-      <Button
-        variant="contained"
-        {...bindHover(popupState)}
-        {...bindFocus(popupState)}
-        sx={{ backgroundColor: Color }}
-      >
-        Editor Menu
-      </Button>
+      <Box sx={{ m: 1 }}>
+        <Button
+          variant="contained"
+          {...bindHover(popupState)}
+          {...bindFocus(popupState)}
+          sx={{ backgroundColor: Color }}
+        >
+          Editor Menu
+        </Button>
+      </Box>
       <CascadingMenu
         popupState={popupState}
         anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
