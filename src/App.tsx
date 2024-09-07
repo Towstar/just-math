@@ -9,6 +9,7 @@ import PageNotFound from "./pages/PageNotFound";
 import { ThemeProvider } from "@mui/material";
 import GlobalTheme from "../public/theme";
 import EquationTestPage from "./pages/EquationTestPage";
+import Billboard from "./pages/Billboard";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
           <Route element={<AppLayout />}>
             <Route index element={<Navigate replace to="home" />} />
             <Route path="home" element={<Home />} />
+            {/* In the future, need to make this the default route for users who do not have a sign in*/}
+            <Route path="billboard" element={<Billboard />} />{" "}
             <Route path="about" element={<About />} />
             <Route path="topics" element={<TopicsList />} />
             <Route path="test" element={<EquationTestPage />} />
