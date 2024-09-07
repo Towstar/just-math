@@ -1,4 +1,5 @@
 # Just-Math.org
+(I generated this ReadMe using ChatGPT, and will go back into this later to write it by hand / modify it to be relevant)
 
 Welcome to **Just-Math.org**, a website dedicated to providing a collection of math-related tools, resources, and information for students, teachers, and enthusiasts. This project aims to offer easy-to-use solutions for various math problems, educational materials, and calculators to assist in learning and problem-solving.
 
