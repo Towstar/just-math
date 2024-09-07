@@ -36,55 +36,55 @@ export const EquationInput: React.FC<EquationInputProps> = ({
         },
         {
           title: "Epsilon",
-          onClick: () => handleSubMenuButtonClick("\\lim_{x \\to a}"),
+          onClick: () => handleSubMenuButtonClick("\\varepsilon"),
         },
         {
           title: "Delta",
-          onClick: () => handleSubMenuButtonClick("\\lim_{x \\to a}"),
+          onClick: () => handleSubMenuButtonClick("\\delta"),
         },
         {
           title: "Euler's Number",
-          onClick: () => handleSubMenuButtonClick("\\lim_{x \\to a}"),
+          onClick: () => handleSubMenuButtonClick("e"),
         },
         {
           title: "Derivative (Lagrange)",
-          onClick: () => handleSubMenuButtonClick("\\lim_{x \\to a}"),
+          onClick: () => handleSubMenuButtonClick("f'(x)"),
         },
         {
           title: "Second Derivative (Lagrange)",
-          onClick: () => handleSubMenuButtonClick("\\lim_{x \\to a}"),
+          onClick: () => handleSubMenuButtonClick("f''(x)"),
         },
         {
           title: "Third Derivative (Lagrange)",
-          onClick: () => handleSubMenuButtonClick("\\lim_{x \\to a}"),
+          onClick: () => handleSubMenuButtonClick("f'''(x)"),
         },
         {
           title: "Derivative (Leibniz)",
-          onClick: () => handleSubMenuButtonClick("\\lim_{x \\to a}"),
+          onClick: () => handleSubMenuButtonClick("\\frac{dy}{dx}"),
         },
         {
           title: "Second Derivative (Leibniz)",
-          onClick: () => handleSubMenuButtonClick("\\lim_{x \\to a}"),
+          onClick: () => handleSubMenuButtonClick("\\frac{d^2 y}{dx^2}"),
         },
         {
           title: "Third Derivative (Leibniz)",
-          onClick: () => handleSubMenuButtonClick("\\lim_{x \\to a}"),
+          onClick: () => handleSubMenuButtonClick("\\frac{d^3 y}{dx^3}"),
         },
         {
           title: "Time Derivative (Newton)",
-          onClick: () => handleSubMenuButtonClick("\\lim_{x \\to a}"),
+          onClick: () => handleSubMenuButtonClick("\\dot{x}"),
         },
         {
-          title: "Time Derivative (Newton)",
-          onClick: () => handleSubMenuButtonClick("\\lim_{x \\to a}"),
+          title: "Second Time Derivative (Newton)",
+          onClick: () => handleSubMenuButtonClick("\\dot{\\dot{x}}"),
         },
         {
           title: "Derivative (Euler)",
-          onClick: () => handleSubMenuButtonClick("\\lim_{x \\to a}"),
+          onClick: () => handleSubMenuButtonClick("D_x y"),
         },
         {
           title: "Second Derivative (Euler)",
-          onClick: () => handleSubMenuButtonClick("\\lim_{x \\to a}"),
+          onClick: () => handleSubMenuButtonClick("D_{x^2} y"),
         },
         {
           title: "Definite Integral",
