@@ -10,6 +10,8 @@ import { ThemeProvider } from "@mui/material";
 import GlobalTheme from "../public/theme";
 import EquationTestPage from "./pages/EquationTestPage";
 import Billboard from "./pages/Billboard";
+import DesmosTest from "./pages/DesmosTest";
+import CodeMirrorTest from "./pages/CodeMirrorTest";
 
 function App() {
   return (
@@ -23,7 +25,9 @@ function App() {
             <Route path="billboard" element={<Billboard />} />{" "}
             <Route path="about" element={<About />} />
             <Route path="topics" element={<TopicsList />} />
-            <Route path="test" element={<EquationTestPage />} />
+            <Route path="EquationTest" element={<EquationTestPage />} />
+            <Route path="DesmosTest" element={<DesmosTest />} />
+            <Route path="CodeMirrorTest" element={<CodeMirrorTest />} />
           </Route>
 
           <Route path="login" element={<Login />} />
