@@ -5,7 +5,7 @@ export default function EquationTestPage() {
   return (
     <>
       <div>Equation Test Page</div>
-      <EquationInput testMode={true} ButtonColor="teal" />
+      <EquationInput testMode={true} ButtonColor="White" textColor="black" />
     </>
   );
 }

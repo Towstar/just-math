@@ -125,11 +125,13 @@ interface MenuItemType {
 interface CascadingHoverMenusProps {
   menuStructure: MenuItemType[];
   Color?: string;
+  textColor?: string;
 }
 
 const CascadingHoverMenus: React.FC<CascadingHoverMenusProps> = ({
   menuStructure,
   Color,
+  textColor,
 }) => {
   const popupState = usePopupState({
     popupId: "demoMenu",
@@ -164,7 +166,7 @@ const CascadingHoverMenus: React.FC<CascadingHoverMenusProps> = ({
           variant="contained"
           {...bindHover(popupState)}
           {...bindFocus(popupState)}
-          sx={{ backgroundColor: Color }}
+          sx={{ backgroundColor: Color, color: textColor, borderRadius: 28 }}
         >
           Editor Menu
         </Button>

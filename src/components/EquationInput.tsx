@@ -1,22 +1,22 @@
 import React, { useState, useRef } from "react";
 import { addStyles, EditableMathField, MathField } from "react-mathquill";
 import CascadingHoverMenus from "./CascadingHoverMenu";
-import { useTheme } from "@emotion/react";
 
 addStyles();
 
 interface EquationInputProps {
   ButtonColor?: string;
   testMode?: boolean;
+  textColor?: string;
 }
 
 export const EquationInput: React.FC<EquationInputProps> = ({
   ButtonColor,
   testMode,
+  textColor,
 }) => {
   const [latex, setLatex] = useState("\\int\\frac{1}{\\sqrt{2}}\\cdot 2");
   const mathFieldRef = useRef<MathField | null>(null);
-  const theme = useTheme();
 
   const handleMathFieldChange = (mathField: MathField) => {
     setLatex(mathField.latex());
@@ -802,12 +802,6 @@ export const EquationInput: React.FC<EquationInputProps> = ({
     },
   ];
 
-  const getButtonColor = (ButtonColor?: string) => {
-    if (ButtonColor == "primary") return theme.palette.primary.main;
-    if (ButtonColor == "secondary") return theme.palette.secondary.main;
-    return ButtonColor;
-  };
-
   return (
     <div>
       {/* Allows for editing of LaTeX in a human readable way */}
@@ -825,7 +819,8 @@ export const EquationInput: React.FC<EquationInputProps> = ({
       {/* Button to see symbols menu */}
       <CascadingHoverMenus
         menuStructure={menuStructure}
-        Color={ButtonColor ? getButtonColor(ButtonColor) : "Red"}
+        Color={ButtonColor}
+        textColor={textColor}
       />
     </div>
   );

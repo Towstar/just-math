@@ -7,15 +7,34 @@ import TopicsList from "./pages/TopicsList";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import { ThemeProvider } from "@mui/material";
-import GlobalTheme from "../public/theme";
+import {
+  ThemeVariantsProps,
+  theme,
+} from "c:/Projects/JustMath/Front/src/Web/just-math/public/theme/index";
 import EquationTestPage from "./pages/EquationTestPage";
 import Billboard from "./pages/Billboard";
 import DesmosTest from "./pages/DesmosTest";
 import CodeMirrorTest from "./pages/CodeMirrorTest";
+import { useMemo, useState } from "react";
+import { useCallback } from "react";
 
 function App() {
+  const [mode, setMode] = useState<ThemeVariantsProps>(
+    ThemeVariantsProps.light
+  );
+  const activeTheme = useMemo(() => theme(mode), [mode]);
+  const handleOnChange = useCallback(
+    () =>
+      setMode(
+        mode === ThemeVariantsProps.light
+          ? ThemeVariantsProps.dark
+          : ThemeVariantsProps.light
+      ),
+    [mode]
+  );
+
   return (
-    <ThemeProvider theme={GlobalTheme}>
+    <ThemeProvider theme={activeTheme}>
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
