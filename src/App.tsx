@@ -7,10 +7,7 @@ import TopicsList from "./pages/TopicsList";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import { ThemeProvider } from "@mui/material";
-import {
-  ThemeVariantsProps,
-  theme,
-} from "c:/Projects/JustMath/Front/src/Web/just-math/public/theme/index";
+import { ThemeVariantsProps, theme } from "../public/theme/index";
 import EquationTestPage from "./pages/EquationTestPage";
 import Billboard from "./pages/Billboard";
 import DesmosTest from "./pages/DesmosTest";
